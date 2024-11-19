@@ -1,0 +1,35 @@
+h1 {
+  font-size: 3rem;
+}
+
+.result-container {
+  border: 3px solid black;
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-container h4,
+.team-name,
+.team-score {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.team {
+  border: 3px solid black;
+  width: 60%;
+  /* margin: auto; */
+  margin: 0 0 1.5rem 0;
+}
+
+.win-score {
+  color: rgb(0, 255, 0);
+}
+
+.lose-score {
+  color: red;
+}
