@@ -27,7 +27,7 @@ const uaap = async (url: string) => {
   });
 
   const details = await Promise.all(
-    getEvents.slice(0, 3).map(async (link) => {
+    getEvents.map(async (link) => {
       return await getDetails(link);
     })
   );

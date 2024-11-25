@@ -1,6 +1,14 @@
 import { Request, Response } from "express";
-import { pba } from "./pba";
-import { uaap } from "./uaap";
+import { pba } from "./scraper/pba";
+import { uaap } from "./scraper/uaap";
+// const Game = require("../models/Game");
+// get data from web
+// store data from web but check only if unique
+
+// const store_game = async (_req: Request, res: Response) => {
+//   const games = await Game.find();
+//   res.status(200).json({ newGames: games });
+// };
 
 const scrape = async (_req: Request, res: Response) => {
   const governors_cup = await pba(
@@ -11,15 +19,7 @@ const scrape = async (_req: Request, res: Response) => {
     "https://uaap.livestats.ph/tournaments/uaap-season-87-men-s"
   );
 
-  const allCups = [governors_cup, uaap_cup];
-
-  const combinedCups = allCups.flat();
-  combinedCups.sort(
-    (a, b) =>
-      new Date(a.event_time ?? 0).getTime() -
-      new Date(b.event_time ?? 0).getTime()
-  );
-  res.status(200).json(combinedCups);
+  res.status(200).json({ pba: governors_cup, uaap: uaap_cup });
 };
 
 export { scrape };
@@ -48,3 +48,13 @@ export { scrape };
 //     parseDate(b.event_time ?? "").getTime()
 //   );
 // });
+
+// const allCups = [governors_cup, uaap_cup];
+
+// const combinedCups = allCups.flat();
+// combinedCups.sort(
+//   (a, b) =>
+//     new Date(a.event_time ?? 0).getTime() -
+//     new Date(b.event_time ?? 0).getTime()
+// );
+// res.status(200).json(combinedCups);

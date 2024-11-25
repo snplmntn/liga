@@ -1,5 +1,5 @@
 import express from "express";
-import { scrape } from "../controller/ScraperController";
+import { get_games } from "../controller/GameController";
 const router = express.Router();
 
 router.get("/", scrape);
