@@ -8,7 +8,7 @@ const scrape = async (_req: Request, res: Response) => {
   );
 
   const uaap_cup = await uaap(
-    "https://uaap.livestats.ph/tournaments/uaap-season-87-junior-s?"
+    "https://uaap.livestats.ph/tournaments/uaap-season-87-men-s"
   );
 
   const allCups = [governors_cup, uaap_cup];
